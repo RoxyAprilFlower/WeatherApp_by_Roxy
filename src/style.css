@@ -23,10 +23,14 @@
   color: rgb(7, 65, 139);
   text-align: center;
 }
-.time,
+.time {
+  font-size: 14px;
+  text-align: center;
+}
 .measure {
   font-size: 14px;
   text-align: center;
+  margin-bottom: -15px;
 }
 .search:hover {
   cursor: pointer;
@@ -44,4 +48,7 @@
   border-radius: 5px;
   margin: 10px 0px;
   padding: 3px 15px;
+}
+img {
+  width: 200px;
 }

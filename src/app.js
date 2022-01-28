@@ -37,6 +37,12 @@ function showTemperature(response) {
   tempNumber.innerHTML = ` ${temperature}`;
   document.getElementById("citySearch").innerHTML = response.data.name;
   document.querySelector("#exampleFormControlInput1").value = "";
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 axios.get(generateApiUrl(city, apiKey, units)).then(showTemperature);
@@ -77,3 +83,4 @@ function showPossition(position) {
   });
 }
 navigator.geolocation.getCurrentPosition(showPossition);
+// icon
