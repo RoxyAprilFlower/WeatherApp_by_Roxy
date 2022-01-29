@@ -83,4 +83,21 @@ function showPossition(position) {
   });
 }
 navigator.geolocation.getCurrentPosition(showPossition);
-// icon
+// forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Sun", "Mon", "Tue", "Wedn", "Thu", "Fri", "Sat"];
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML += `<div class="row block">
+  <div class="col-6">${day}</div>
+  <div class="col-2">6°</div>
+  <div class="col-2 night">3°</div>
+  <div class="col-2">🌥</div>
+</div>`;
+  });
+
+  forecastElement.innerHTML = forecastHTML + `</div>`;
+  console.log(forecastHTML);
+}
+displayForecast();
