@@ -42,6 +42,13 @@ function getForecast(coordinates) {
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let tempNumber = document.querySelector("#tempNumber");
+
+  let minTemp = document.getElementById("minTemp");
+  minTemp.innerHTML = Math.round(response.data.main.temp_min);
+
+  let maxTemp = document.getElementById("maxTemp");
+  maxTemp.innerHTML = Math.round(response.data.main.temp_max);
+
   tempNumber.innerHTML = ` ${temperature}`;
   document.getElementById("citySearch").innerHTML = response.data.name;
   document.querySelector("#exampleFormControlInput1").value = "";
@@ -95,9 +102,9 @@ function showPossition(position) {
 navigator.geolocation.getCurrentPosition(showPossition);
 // forecast
 function displayForecast(response) {
+  if (!response) return;
   let forecast = response.data.daily;
-
-  let forecastElement = document.querySelector("#forecast");
+  let forecastElement = document.querySelector("#forecast", "#maxmin");
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
@@ -111,7 +118,6 @@ function displayForecast(response) {
 </div>`;
     }
   });
-
   forecastElement.innerHTML = forecastHTML + `</div>`;
   console.log(forecastHTML);
 }
