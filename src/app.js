@@ -1,4 +1,4 @@
-let now = new Date();
+et now = new Date();
 
 let days = ["Sun", "Mon", "Tue", "Wen", "Thu", "Fri", "Sat"];
 
@@ -130,3 +130,4 @@ function formatDay(timestamp) {
   let days = ["Sun", "Mon", "Tue", "Wen", "Thu", "Fri", "Sat"];
   return days[day];
 }
+
