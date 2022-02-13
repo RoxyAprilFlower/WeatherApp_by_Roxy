@@ -1,0 +1,54 @@
+.smile {
+  font-size: 100px;
+  display: block;
+  text-align: center;
+}
+.general {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  max-width: 300px;
+}
+.block {
+  font-size: 25px;
+  color: rgb(7, 65, 139);
+  background-color: rgb(255, 255, 255);
+}
+.block:hover {
+  background-color: rgba(8, 8, 8, 0.3);
+  border-radius: 19px;
+}
+.temp,
+.time,
+.city {
+  font-size: 25px;
+  color: rgb(7, 65, 139);
+  text-align: center;
+}
+.time {
+  font-size: 14px;
+  text-align: center;
+}
+.measure {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: -15px;
+}
+.search:hover {
+  cursor: pointer;
+}
+.night {
+  font-size: 15px;
+  color: rgb(62, 62, 66);
+  display: block;
+  margin: 10px 0px;
+}
+#button {
+  color: rgb(243, 243, 243);
+  text-align: center;
+  background-color: rgb(70, 119, 81);
+  border-radius: 5px;
+  margin: 10px 0px;
+  padding: 3px 15px;
+}
+img {
+  width: 200px;
+}
