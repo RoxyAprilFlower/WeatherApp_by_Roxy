@@ -95,18 +95,32 @@ function showPossition(position) {
 navigator.geolocation.getCurrentPosition(showPossition);
 // forecast
 function displayForecast(response) {
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Mon", "Tue", "Wedn", "Thu", "Fri", "Sat", "Sun"];
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML += `<div class="row block">
-  <div class="col-6">${day}</div>
-  <div class="col-2">6°</div>
-  <div class="col-2 night">3°</div>
-  <div class="col-2">🌥</div>
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML += `<div class="row block">
+  <div class="col-6">${formatDay(forecastDay.dt)}</div>
+  <div class="col-2">${Math.round(forecastDay.temp.max)}°</div>
+  <div class="col-2 night">${Math.round(forecastDay.temp.min)}°</div>
+  <div class="col-2"><img style="width:50px!important" src="http://openweathermap.org/img/wn/${
+    forecastDay.weather[0].icon
+  }@2x.png"></div>
 </div>`;
+    }
   });
 
   forecastElement.innerHTML = forecastHTML + `</div>`;
   console.log(forecastHTML);
+}
+displayForecast();
+
+// forecast day
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wen", "Thu", "Fri", "Sat"];
+  return days[day];
 }
